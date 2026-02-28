@@ -8,7 +8,7 @@ Day1Global 投资分析 Skills 共享仓库 | Day1Global Investment Analysis Ski
 
 ## tech-earnings-deepdive：科技股财报深度分析 Skill
 
-Author: [Ruby](https://x.com/Rubywang)
+Author: [Ruby](https://x.com/Rubywang), [Star](https://x.com/starzq)
 
 一个为 Claude 打造的科技股财报深度分析与多视角投资备忘录系统（v3.0），覆盖 **16 大分析模块**、**6 大投资哲学视角**、**多方法估值矩阵**、**反偏见框架**和**可执行决策体系**。
 
