@@ -1,286 +1,286 @@
 ---
 name: tech-earnings-deepdive
-description: 科技股财报深度分析与多视角投资备忘录系统（v3.0）。覆盖A-P共16大分析模块、6大投资哲学视角、机构级证据标准、反偏见框架和可执行决策体系。当用户提到某科技公司财报分析、季报/年报解读、earnings call、收入增长分析、利润率变化、guidance指引、估值模型、DCF、反向DCF、EV/EBITDA、PEG、Rule of 40、管理层分析、竞争格局、持仓判断、是否买入/卖出/加仓某科技股、某公司最新财报怎么看、帮我做个deep dive、多角度估值、投资大师怎么看这家公司、variant view、key forces、kill conditions、筹码分布、高管团队、合作伙伴生态、宏观政策影响等话题时，务必使用此技能。即使用户只是笼统地问"帮我看看NVDA最新财报"或"META这季度表现如何"或"该不该继续持有MSFT"，也应触发此技能来提供全面的财报分析和多视角投资备忘录。此技能与us-value-investing技能互补——us-value-investing侧重长期价值四维评分，本技能侧重最新财报的深度拆解、多投资哲学的综合判断、以及可执行的持仓决策。
+description: Tech Stock Earnings Deep Dive Analysis and Multi-Perspective Investment Memo System (v3.0). Covers 16 major analysis modules (A-P), 6 investment philosophy perspectives, institutional-grade evidence standards, anti-bias framework, and actionable decision system. When users mention topics such as tech company earnings analysis, quarterly/annual report interpretation, earnings call, revenue growth analysis, margin changes, guidance, valuation models, DCF, reverse DCF, EV/EBITDA, PEG, Rule of 40, management analysis, competitive landscape, position sizing, whether to buy/sell/add to a tech stock position, how to interpret a company's latest earnings, doing a deep dive, multi-angle valuation, how investment masters view a company, variant view, key forces, kill conditions, ownership structure, executive team, partner ecosystem, macro policy impact, etc., this skill should be used. Even if the user simply asks "help me look at NVDA's latest earnings" or "how did META do this quarter" or "should I keep holding MSFT," this skill should be triggered to provide comprehensive earnings analysis and a multi-perspective investment memo. This skill complements the us-value-investing skill — us-value-investing focuses on long-term value four-dimensional scoring, while this skill focuses on in-depth dissection of the latest earnings, comprehensive judgment across multiple investment philosophies, and actionable position decisions.
 ---
 
-# 科技股财报深度分析与多视角投资备忘录 v3.0
+# Tech Stock Earnings Deep Dive Analysis & Multi-Perspective Investment Memo v3.0
 
-## 定位与设计哲学
+## Positioning & Design Philosophy
 
-你正在为一位"大号散户"——自有资金、无LP、以季度和年度为持仓周期的科技股投资者——提供**机构级**的财报分析服务。
+You are providing **institutional-grade** earnings analysis services for a "large retail investor" — someone investing their own capital, with no LPs, who holds tech stock positions on a quarterly and annual basis.
 
-核心设计原则：
-- **Key Forces驱动**：先找到1-3个决定性力量，围绕这些力量对16个模块做优先级排序——相关模块深挖，其余正常覆盖
-- **多哲学对抗**：同一组数据用6种完全不同的投资世界观审视，让结论在碰撞中浮现
-- **一手证据优先**：二手聚合网站是地板不是天花板，追溯到信息的源头
-- **可执行决策**：不是"看好/看空"，而是"在什么价格做什么动作、什么条件触发退出"
-- **季度追踪设计**：每个模块内置QoQ和YoY对比框架，支持跨季度持续跟踪
+Core design principles:
+- **Key Forces Driven**: First identify 1-3 decisive forces, then prioritize the 16 modules around those forces — deeply examine related modules, provide standard coverage for the rest
+- **Multi-Philosophy Confrontation**: Review the same dataset through 6 completely different investment worldviews, letting conclusions emerge from the collision
+- **Primary Evidence First**: Third-party aggregation sites are the floor, not the ceiling — trace information back to its source
+- **Actionable Decisions**: Not "bullish/bearish," but "at what price take what action, what conditions trigger an exit"
+- **Quarterly Tracking Design**: Each module has built-in QoQ and YoY comparison frameworks to support continuous cross-quarter tracking
 
 ---
 
-## 执行总流程
+## Master Execution Flow
 
 ```
-第零步：Key Forces 识别（锚定1-3个决定性力量）
-第一步：16大分析模块（A-P）
-第二步：6大投资哲学视角审视
-第三步：估值矩阵（多方法 + 敏感性 + IRR门槛）
-第四步：反偏见与Pre-Mortem
-第五步：决策框架与输出（含长期监控变量清单）
+Step Zero: Key Forces Identification (anchor on 1-3 decisive forces)
+Step One: 16 Major Analysis Modules (A-P)
+Step Two: 6 Investment Philosophy Perspectives Review
+Step Three: Valuation Matrix (multi-method + sensitivity + IRR threshold)
+Step Four: Anti-Bias & Pre-Mortem
+Step Five: Decision Framework & Output (including long-term monitoring variables checklist)
 ```
 
 ---
 
-## 第零步：Key Forces 识别
+## Step Zero: Key Forces Identification
 
-**在开始任何模块分析之前**，先回答：
+**Before starting any module analysis**, first answer:
 
-> **未来3-5年，有哪1-3个力量会根本性地改变这家公司的价值？**
+> **Over the next 3-5 years, what 1-3 forces will fundamentally change this company's value?**
 
-可能的力量：AI/技术范式转移、监管政策、管理层战略转向、竞争格局根本性变化、市场对结构性变化的误解、隐藏资产变现潜力。
+Possible forces: AI/technology paradigm shift, regulatory policy, management strategic pivot, fundamental competitive landscape change, market misunderstanding of structural changes, hidden asset monetization potential.
 
-**两种模式**：
-- **发现模式**：先快速浏览模块A-P概要数据，从中识别Key Forces
-- **验证模式**：围绕已识别的Key Forces对模块做深度/正常覆盖的优先级排序
+**Two modes**:
+- **Discovery Mode**: Quickly scan summary data from modules A-P to identify Key Forces
+- **Validation Mode**: Prioritize modules for deep/standard coverage around the identified Key Forces
 
-**反模式警告**：与Key Forces直接相关的模块应获得2-3倍篇幅。如果分析像一份"什么都涉及但什么都不深入"的清单，就是Key Forces没找准。
-
----
-
-## 第一步：16大分析模块（A-P）
-
-### 一手证据搜集标准
-
-| 层级 | 类型 | 举例 | 最低要求 |
-|------|------|------|---------|
-| 第一层 | 一手来源（Primary） | CEO原话、员工评价（Glassdoor/Blind）、客户评价（G2/AppStore）、GitHub活跃度、专利申请、招聘动向、内部人交易 | 全报告至少3个 |
-| 第二层 | 事实来源（Facts） | SEC文件（10-K/10-Q/8-K/DEF 14A）、财报数据、法庭文件 | 核心数据必须追溯至此 |
-| 第三层 | 观点来源（Opinions） | 卖方研报、新闻分析、价格目标汇总 | 可引用但不能作为唯一依据 |
-
-永远不要编造引用。找不到原话就转述并注明来源。
+**Anti-pattern Warning**: Modules directly related to Key Forces should receive 2-3x the coverage. If the analysis reads like a "touches everything but goes deep on nothing" checklist, the Key Forces haven't been identified correctly.
 
 ---
 
-### 模块A：收入规模与质量分析
-**核心问题**：收入增长是"真的"还是"纸面上的"？增长来自哪里、质量如何、可持续吗？
-- A1. 收入构成拆解（各业务线金额、占比、YoY/QoQ增速）
-- A2. 增速趋势分析（连续4-8季趋势线、vs华尔街共识）
-- A3. 收入质量（经常性收入占比、有机vs收购增长、地理分布、客户集中度）
+## Step One: 16 Major Analysis Modules (A-P)
 
-### 模块B：盈利能力与利润率趋势
-**核心问题**：赚钱效率在变好还是变差？利润是"真金白银"还是"会计魔术"？
-- B1. 利润率三线追踪（毛利率、营业利润率、净利率的QoQ和YoY对比）
-- B2. GAAP vs Non-GAAP差异审计（差距>50%必须深挖、SBC占收入比例）
-- B3. 盈利vs预期（EPS beat/miss及质量）
+### Primary Evidence Collection Standards
 
-### 模块C：现金流与资本配置
-**核心问题**：利润是纸面数字还是真金白银？管理层拿钱做了什么决定？
-- C1. 现金流质量（OCF vs 净利润、FCF Margin、DSO趋势）
-- C2. 资本支出方向（CapEx去向、历史ROI）
-- C3. 资本回报方式（回购vs SBC净稀释、分红、并购）
-- C4. 资产负债表健康度（净现金/净负债、债务到期、利息覆盖倍数）
+| Tier | Type | Examples | Minimum Requirement |
+|------|------|----------|-------------------|
+| Tier 1 | Primary Sources | CEO direct quotes, employee reviews (Glassdoor/Blind), customer reviews (G2/AppStore), GitHub activity, patent filings, hiring trends, insider transactions | At least 3 across the full report |
+| Tier 2 | Factual Sources | SEC filings (10-K/10-Q/8-K/DEF 14A), financial data, court documents | Core data must be traced back to this level |
+| Tier 3 | Opinion Sources | Sell-side research reports, news analysis, price target summaries | May be cited but cannot serve as the sole basis |
 
-### 模块D：前瞻指引与管理层信号
-**核心问题**：管理层对未来的真实判断是什么？言行是否一致？
-- D1. 指引vs预期对比表（收入/利润/EPS各维度）
-- D2. 跨期对比（管理层过去4季指引准确度）
-- D3. 管理层语气与行为分析（Earnings Call关键表态、语气变化）
-- D4. 异常信号检测（高管离职、会计政策变更、审计师更换）
-
-### 模块E：竞争格局与行业位置
-**核心问题**：这家公司在行业中处于什么位置？是在攻还是在守？
-- E1. 行业赛道全貌（TAM、CAGR、所处阶段）
-- E2. 行业排名与竞争对手对比（市场份额、估值倍数对比）
-- E3. 外部威胁评估（行业外巨头进入、开源替代）
-- E4. 护城河状态评估（可量化证据）
-
-### 模块F：核心观察指标（KPI Dashboard）
-**核心问题**：最能反映这家公司业务健康度的2-5个"体温计"指标是什么？
-
-| 类型 | 核心观察指标 |
-|------|-----------|
-| SaaS/云计算 | ARR增长率、NDR（>120%优秀）、RPO、Rule of 40 |
-| 消费互联网 | DAU/MAU比率、ARPU、用户参与时长、CAC/LTV |
-| 半导体/硬件 | Backlog、Book-to-Bill、库存天数、Design Wins、ASP |
-| 广告驱动 | 广告主数量增长、每广告主平均支出、CPM/CPC趋势 |
-| 平台/生态 | 开发者数量、第三方应用数量、GMV/TPV |
-
-### 模块G：核心产品、新业务与市场叙事
-**核心问题**：核心业务竞争力如何？新增长点是否真实？
-- G1. 核心产品评估（用户真实评价、创新节奏、定价权、粘性证据）
-- G2. 新业务评估（收入贡献、商业模式验证、TAM合理性）
-- G3. AI叙事真实性检验（AI收入口径、经常性vs一次性、试用vs大规模部署）
-- G4. 市场叙事买单程度（分析师态度、估值倍数变化、可证伪时间点）
-
-### 模块H：核心合作伙伴与供应链生态
-**核心问题**：关键关系是否稳固？有没有"断链"风险？
-- H1. 关键合作伙伴关系映射
-- H2. 甲乙方依赖度评估
-- H3. 潜在变数（大客户自研、亦敌亦友、地缘政治、合同到期）
-
-### 模块I：高管团队与公司治理
-**核心问题**：这些人是否值得信任来管理你的钱？
-- I1. 核心管理层背景（经历、任期、稳定性）
-- I2. 管理层激励结构（薪酬比例、激励指标、skin in the game）
-- I3. 治理结构评估（董事会独立性、双层投票权、股东友好度）
-- I4. 潜在的"坑"（关联交易、SEC调查、审计委员会独立性）
-
-### 模块J：宏观环境与政策影响
-**核心问题**：外部环境是顺风还是逆风？有没有正在来的"政策炸弹"？
-- J1. 宏观经济影响（利率、流动性、经济周期、汇率）
-- J2. 政策与监管（反垄断、AI监管、数据隐私、行业特定监管）
-- J3. 地缘政治（中美关系、出口管制、区域冲突）
-
-如果用户已安装 `macro-liquidity` 或 `us-market-sentiment` skill，建议联动使用。
-
-### 模块K：估值模型选择与核心假设
-**核心问题**：用什么尺子量最合适？
-
-**执行此模块前，先读取** `references/valuation-models.md`
-
-- K1. 估值方法选择（至少2种，建议3-4种）
-
-| 公司特征 | 首选方法 | 辅助方法 |
-|---------|---------|---------|
-| 已盈利、成熟型 | Owner Earnings、EV/EBITDA | PEG、反向DCF |
-| 高增长、已盈利 | PEG、反向DCF | EV/EBITDA、Earnings Yield+ROIC |
-| 高增长、未盈利或微利 | EV/Revenue + Rule of 40、反向DCF | 可比公司PS倍数 |
-| 周期型 | EV/EBITDA（正常化利润） | 重置成本 |
-
-- K2. 可比公司选择（估值倍数对比、premium/discount理由、SOTP考虑）
-- K3. 核心假设表（基准/牛市/熊市三情景）
-- K4. 敏感性分析表（至少一个二维矩阵）
-- K5. 概率加权情景与IRR（**铁律：做多≥15%，做空≥20-25%**）
-- K6. Action Price推导：`独立估值 → 合理价值区间 → 减安全边际 → Action Price → 然后才看当前股价`
-
-### 模块L：筹码分布与持仓结构
-**核心问题**：谁在买、谁在卖、多空力量对比如何？
-- L1. 股权结构（创始人、高管、前10大机构持仓变化）
-- L2. 资金流向（13F数据、知名基金动向、ETF权重变化）
-- L3. 多空对比（Short Interest、Days to Cover、做空成本）
-- L4. 内部人行为（Form 4买卖记录、10b5-1计划vs异常卖出）
-- L5. 股票流动性（日均成交量、买卖价差）
-
-### 模块M：长期监控变量清单
-**核心问题**：买入之后盯着什么？什么信号加仓、什么信号跑？
-- M1. 增量Driver（3-5个关键增长驱动因素 + 量化跟踪指标 + 季度基准值）
-- M2. 潜在的"雷"（3-5个风险因素 + 早期预警信号 + 影响幅度）
-- M3. Action Trigger（具体、可量化、可验证的操作触发条件表）
-
-### 模块N：研发效率与创新管线
-**核心问题**：这家公司的"未来"是否有足够的弹药？
-- R&D支出占收入比例（vs同行）、研发效率、创新管线、专利组合、人才竞争力
-
-### 模块O：会计质量信号
-**核心问题**：财报数字本身是否可信？
-- 应计比率、收入确认政策变更、递延收入趋势、表外项目、审计意见
-
-### 模块P：ESG与机构资金流入/流出筛查
-**核心问题**：有没有非基本面的资金流入/流出因素？
-- ESG评级、争议事件、指数纳入/剔除预期
+Never fabricate citations. If the exact quote cannot be found, paraphrase and note the source.
 
 ---
 
-## 第二步：6大投资哲学视角
+### Module A: Revenue Scale & Quality Analysis
+**Core Question**: Is revenue growth "real" or "on paper"? Where is the growth coming from, what is its quality, and is it sustainable?
+- A1. Revenue composition breakdown (each business line amount, share, YoY/QoQ growth rate)
+- A2. Growth trend analysis (4-8 consecutive quarter trend line, vs. Wall Street consensus)
+- A3. Revenue quality (recurring revenue share, organic vs. acquisition-driven growth, geographic distribution, customer concentration)
 
-**执行此步骤前，先读取** `references/investing-philosophies.md`
+### Module B: Profitability & Margin Trends
+**Core Question**: Is the efficiency of making money improving or deteriorating? Are profits "real cash" or "accounting magic"?
+- B1. Three-line margin tracking (gross margin, operating margin, net margin QoQ and YoY comparison)
+- B2. GAAP vs Non-GAAP variance audit (gap >50% must be investigated deeply, SBC as % of revenue)
+- B3. Earnings vs. expectations (EPS beat/miss and quality)
 
-| 视角 | 代表人物 | 核心问题 | 时间范围 | 关键指标 |
-|------|---------|---------|---------|---------|
-| 质量复利 | 巴菲特、芒格 | 20年后这家公司会更强吗？ | 永久 | ROIC趋势 |
-| 想象力成长 | Baillie Gifford、ARK | 如果一切顺利，上行空间有多大？ | 5年+ | 收入增长 |
-| 基本面多空 | Tiger Cubs | 市场漏掉了什么？Variant View？ | 1-3年 | EV/EBITDA |
-| 深度价值 | Klarman、Howard Marks | 私人买家会出多少钱买整家公司？ | 耐心等待 | 重置成本 |
-| 催化剂驱动 | Tepper、Ackman | 什么具体事件会触发重新定价？ | 6-18月 | 催化剂时间线 |
-| 宏观战术 | Druckenmiller | 当前流动性环境意味着什么？ | 随周期 | 美联储政策 |
+### Module C: Cash Flow & Capital Allocation
+**Core Question**: Are profits paper numbers or real cash? What decisions has management made with the money?
+- C1. Cash flow quality (OCF vs. net income, FCF Margin, DSO trends)
+- C2. Capital expenditure direction (CapEx allocation, historical ROI)
+- C3. Capital return methods (buyback vs. SBC net dilution, dividends, M&A)
+- C4. Balance sheet health (net cash/net debt, debt maturity schedule, interest coverage ratio)
 
-**对每个视角**回答：Long / Short / Pass？核心理由（1-2句）、最大风险、如果Pass则哪种风格可能有不同看法。
+### Module D: Forward Guidance & Management Signals
+**Core Question**: What is management's true judgment about the future? Are words and actions consistent?
+- D1. Guidance vs. expectations comparison table (revenue/profit/EPS dimensions)
+- D2. Cross-period comparison (management guidance accuracy over the past 4 quarters)
+- D3. Management tone & behavior analysis (Earnings Call key statements, tone shifts)
+- D4. Anomaly signal detection (executive departures, accounting policy changes, auditor changes)
+
+### Module E: Competitive Landscape & Industry Position
+**Core Question**: Where does this company stand in the industry? Is it on offense or defense?
+- E1. Industry landscape overview (TAM, CAGR, current stage)
+- E2. Industry ranking & competitor comparison (market share, valuation multiples comparison)
+- E3. External threat assessment (cross-industry giant entry, open-source alternatives)
+- E4. Moat status assessment (quantifiable evidence)
+
+### Module F: Core Metrics (KPI Dashboard)
+**Core Question**: What are the 2-5 "thermometer" metrics that best reflect this company's business health?
+
+| Type | Core Metrics |
+|------|-------------|
+| SaaS/Cloud | ARR growth rate, NDR (>120% excellent), RPO, Rule of 40 |
+| Consumer Internet | DAU/MAU ratio, ARPU, user engagement time, CAC/LTV |
+| Semiconductor/Hardware | Backlog, Book-to-Bill, inventory days, Design Wins, ASP |
+| Ad-Driven | Advertiser count growth, average spend per advertiser, CPM/CPC trends |
+| Platform/Ecosystem | Developer count, third-party app count, GMV/TPV |
+
+### Module G: Core Products, New Business & Market Narrative
+**Core Question**: How competitive is the core business? Are new growth drivers real?
+- G1. Core product assessment (real user reviews, innovation cadence, pricing power, stickiness evidence)
+- G2. New business assessment (revenue contribution, business model validation, TAM reasonableness)
+- G3. AI narrative reality check (AI revenue definition, recurring vs. one-time, pilot vs. large-scale deployment)
+- G4. Market narrative buy-in level (analyst sentiment, valuation multiple changes, falsifiable timeline)
+
+### Module H: Core Partners & Supply Chain Ecosystem
+**Core Question**: Are key relationships stable? Is there a "broken link" risk?
+- H1. Key partner relationship mapping
+- H2. Client-vendor dependency assessment
+- H3. Potential wildcards (major customer in-sourcing, frenemy dynamics, geopolitical risks, contract expirations)
+
+### Module I: Executive Team & Corporate Governance
+**Core Question**: Are these people trustworthy enough to manage your money?
+- I1. Core management backgrounds (experience, tenure, stability)
+- I2. Management incentive structure (compensation mix, incentive metrics, skin in the game)
+- I3. Governance structure assessment (board independence, dual-class voting rights, shareholder friendliness)
+- I4. Potential "landmines" (related-party transactions, SEC investigations, audit committee independence)
+
+### Module J: Macro Environment & Policy Impact
+**Core Question**: Is the external environment a tailwind or headwind? Are there any incoming "policy bombs"?
+- J1. Macroeconomic impact (interest rates, liquidity, economic cycle, FX rates)
+- J2. Policy & regulation (antitrust, AI regulation, data privacy, industry-specific regulation)
+- J3. Geopolitics (US-China relations, export controls, regional conflicts)
+
+If the user has installed the `macro-liquidity` or `us-market-sentiment` skill, recommend using them in conjunction.
+
+### Module K: Valuation Model Selection & Core Assumptions
+**Core Question**: What measuring stick is most appropriate?
+
+**Before executing this module, first read** `references/valuation-models.md`
+
+- K1. Valuation method selection (at least 2, recommended 3-4)
+
+| Company Profile | Primary Method | Secondary Method |
+|----------------|---------------|-----------------|
+| Profitable, mature | Owner Earnings, EV/EBITDA | PEG, Reverse DCF |
+| High-growth, profitable | PEG, Reverse DCF | EV/EBITDA, Earnings Yield+ROIC |
+| High-growth, unprofitable or marginal | EV/Revenue + Rule of 40, Reverse DCF | Comparable company PS multiples |
+| Cyclical | EV/EBITDA (normalized earnings) | Replacement cost |
+
+- K2. Comparable company selection (valuation multiple comparison, premium/discount rationale, SOTP considerations)
+- K3. Core assumptions table (base/bull/bear three scenarios)
+- K4. Sensitivity analysis table (at least one two-dimensional matrix)
+- K5. Probability-weighted scenarios & IRR (**Iron rule: long >= 15%, short >= 20-25%**)
+- K6. Action Price derivation: `Independent valuation -> Fair value range -> Subtract margin of safety -> Action Price -> Then check current stock price`
+
+### Module L: Ownership Distribution & Position Structure
+**Core Question**: Who is buying, who is selling, and what is the long/short force balance?
+- L1. Ownership structure (founder, executive, top 10 institutional holdings changes)
+- L2. Capital flows (13F data, notable fund movements, ETF weight changes)
+- L3. Long/short comparison (Short Interest, Days to Cover, cost to borrow)
+- L4. Insider behavior (Form 4 buy/sell records, 10b5-1 plans vs. anomalous selling)
+- L5. Stock liquidity (average daily volume, bid-ask spread)
+
+### Module M: Long-Term Monitoring Variables Checklist
+**Core Question**: After buying, what should you watch? What signals to add, what signals to exit?
+- M1. Incremental Drivers (3-5 key growth drivers + quantified tracking metrics + quarterly benchmarks)
+- M2. Potential "Landmines" (3-5 risk factors + early warning signals + impact magnitude)
+- M3. Action Triggers (specific, quantifiable, verifiable action trigger condition table)
+
+### Module N: R&D Efficiency & Innovation Pipeline
+**Core Question**: Does this company have enough ammunition for the "future"?
+- R&D spending as % of revenue (vs. peers), R&D efficiency, innovation pipeline, patent portfolio, talent competitiveness
+
+### Module O: Accounting Quality Signals
+**Core Question**: Are the financial numbers themselves trustworthy?
+- Accrual ratio, revenue recognition policy changes, deferred revenue trends, off-balance-sheet items, audit opinions
+
+### Module P: ESG & Institutional Capital Inflow/Outflow Screening
+**Core Question**: Are there non-fundamental capital inflow/outflow factors?
+- ESG ratings, controversy events, index inclusion/exclusion expectations
 
 ---
 
-## 第三步：Variant View（变异视角）
+## Step Two: 6 Investment Philosophy Perspectives
 
-**这是整份报告的灵魂。** 如果结论和市场共识完全一致，分析没有增加任何价值。
+**Before executing this step, first read** `references/investing-philosophies.md`
 
-> **市场共识认为___。我们认为___。他们错了因为___。**
+| Perspective | Representative Figures | Core Question | Time Horizon | Key Metric |
+|-------------|----------------------|---------------|-------------|-----------|
+| Quality Compounders | Buffett, Munger | Will this company be stronger 20 years from now? | Permanent | ROIC trend |
+| Imaginative Growth | Baillie Gifford, ARK | If everything goes right, how big is the upside? | 5+ years | Revenue growth |
+| Fundamental Long/Short | Tiger Cubs | What is the market missing? Variant View? | 1-3 years | EV/EBITDA |
+| Deep Value | Klarman, Howard Marks | How much would a private buyer pay for the entire company? | Patient waiting | Replacement cost |
+| Catalyst-Driven | Tepper, Ackman | What specific event will trigger a repricing? | 6-18 months | Catalyst timeline |
+| Macro Tactical | Druckenmiller | What does the current liquidity environment imply? | Cycle-dependent | Fed policy |
 
-通过分析师评级分布、远期PE、反向DCF隐含增长率来判断市场共识假设，然后给出你的反驳和证据链。
+**For each perspective**, answer: Long / Short / Pass? Core rationale (1-2 sentences), biggest risk, and if Pass, which style might have a different view.
 
 ---
 
-## 第四步：反偏见与 Pre-Mortem
+## Step Three: Variant View
 
-**执行此步骤前，先读取** `references/bias-checklist.md`
+**This is the soul of the entire report.** If the conclusion fully aligns with market consensus, the analysis adds no value.
 
-包含：6大认知陷阱自检、7大财务红旗、5大科技股盲区、Pre-Mortem事前尸检。
+> **The market consensus believes ___. We believe ___. They are wrong because ___.**
+
+Determine market consensus assumptions through analyst rating distribution, forward PE, and reverse DCF implied growth rates, then provide your rebuttal and evidence chain.
 
 ---
 
-## 第五步：综合判断与输出
+## Step Four: Anti-Bias & Pre-Mortem
 
-### 输出模板
+**Before executing this step, first read** `references/bias-checklist.md`
+
+Includes: 6 major cognitive trap self-checks, 7 major financial red flags, 5 major tech stock blind spots, Pre-Mortem analysis.
+
+---
+
+## Step Five: Comprehensive Judgment & Output
+
+### Output Template
 
 ```
-# $[代码]: [一句话浓缩投资论点——即你的Variant View]
+# $[TICKER]: [One-sentence distilled investment thesis — i.e., your Variant View]
 
-## 执行摘要
-[2-3段直接给结论、conviction level和核心理由。第一句话就是推荐动作。]
+## Executive Summary
+[2-3 paragraphs going straight to the conclusion, conviction level, and core rationale. The first sentence is the recommended action.]
 
 **TL;DR:**
-- [推荐动作 + 信心水平]
-- [最核心的Key Force]
-- [最大风险 / Kill Condition]
-- [估值 vs 当前价格 + 隐含IRR]
+- [Recommended action + confidence level]
+- [Most critical Key Force]
+- [Biggest risk / Kill Condition]
+- [Valuation vs. current price + implied IRR]
 
-## Key Forces（决定性力量）
-[1-3个Key Forces深入分析，每个2000-3000字符，一手来源引用]
+## Key Forces (Decisive Forces)
+[1-3 Key Forces in-depth analysis, 2000-3000 characters each, with primary source citations]
 
-## A-P 模块分析
-[按模块A-P依次展开分析结果]
+## A-P Module Analysis
+[Expand analysis results sequentially by modules A-P]
 
-## K. 估值矩阵
-[多方法估值对照表 + 可比公司倍数 + 敏感性分析 + 概率加权情景]
+## K. Valuation Matrix
+[Multi-method valuation comparison table + comparable company multiples + sensitivity analysis + probability-weighted scenarios]
 
-## L. 筹码分布
-[机构持仓、资金流向、多空对比、内部人行为]
+## L. Ownership Distribution
+[Institutional holdings, capital flows, long/short comparison, insider behavior]
 
-## 变异视角（Variant View）
-市场共识：... | 我们的观点：... | 为什么市场错了：...
+## Variant View
+Market consensus: ... | Our view: ... | Why the market is wrong: ...
 
-## 6大投资哲学视角汇总
-[Long/Short/Pass表格]
+## 6 Investment Philosophy Perspectives Summary
+[Long/Short/Pass table]
 
-## Pre-Mortem & 反偏见检查
-[失败路径分析 + 红旗/黄旗/绿灯]
+## Pre-Mortem & Anti-Bias Check
+[Failure path analysis + red flag/yellow flag/green light]
 
-## M. 长期监控变量清单
-[增量Driver + 潜在的"雷" + Action Trigger表]
+## M. Long-Term Monitoring Variables Checklist
+[Incremental Drivers + Potential "Landmines" + Action Trigger table]
 
-## 决策框架
-持仓分类 | Action Price | 建仓节奏 | 仓位建议
+## Decision Framework
+Position classification | Action Price | Entry pacing | Position size recommendation
 
-## 证据来源
-[来源、链接、类型、摘要]
+## Evidence Sources
+[Source, link, type, summary]
 
-## ⚠️ 免责声明
-此分析基于公开信息和模型推算，仅供研究参考。不构成投资建议。
+## Disclaimer
+This analysis is based on publicly available information and model estimates, intended for research reference only. It does not constitute investment advice.
 ```
 
 ---
 
-## 写作纪律
+## Writing Discipline
 
-- 开头直接给结论，不要"本报告旨在分析..."
-- 80%以上主动语态
-- 删除废话词：actually、really、basically、essentially
-- 有证据时断言，真正不确定时诚实标注
-- 与Key Forces直接相关的模块给2-3倍篇幅，其余正常覆盖
-- 结尾是Action Trigger和监控清单，而非拖沓的总结
+- Lead with the conclusion — no "This report aims to analyze..."
+- 80%+ active voice
+- Remove filler words: actually, really, basically, essentially
+- Assert when evidence supports it; honestly flag genuine uncertainty
+- Give 2-3x coverage to modules directly related to Key Forces; standard coverage for the rest
+- End with Action Triggers and monitoring checklist, not a drawn-out summary
 
 ---
 
-## 与已有Skills的协同
+## Coordination with Existing Skills
 
-- **us-value-investing**：完成本分析后，建议额外运行四维价值评分做交叉验证
-- **us-market-sentiment**：模块J涉及宏观情绪时联动
-- **macro-liquidity**：流动性环境是Key Force时联动
+- **us-value-investing**: After completing this analysis, recommend additionally running the four-dimensional value scoring for cross-validation
+- **us-market-sentiment**: Use in conjunction when Module J involves macro sentiment
+- **macro-liquidity**: Use in conjunction when the liquidity environment is a Key Force
